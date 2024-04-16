@@ -6,8 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.example.periodflow.R
-import com.example.periodflow.activities.HomeActivity
 import com.example.periodflow.utils.SharePref
 import com.example.periodflow.databinding.FragmentLanguageBinding
 
@@ -120,8 +120,7 @@ class LanguageFragment : Fragment() {
 
         binding.btnDone.setOnClickListener {
             SharePref.putString("language", langugage!!)
-            startActivity(Intent(requireActivity(), HomeActivity::class.java))
-            requireActivity().finish()
+            findNavController().navigate(R.id.action_languageFragment_to_splashFragment)
         }
         return binding.root
     }

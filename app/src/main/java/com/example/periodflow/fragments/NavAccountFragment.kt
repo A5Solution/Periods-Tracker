@@ -1,4 +1,4 @@
-package com.example.periodflow
+package com.example.periodflow.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

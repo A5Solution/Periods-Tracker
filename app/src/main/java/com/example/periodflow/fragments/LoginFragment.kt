@@ -26,7 +26,7 @@ class LoginFragment : Fragment() {
         binding.edtEmail.background.mutate().setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_IN)
 
         binding.btnSignUp.setOnClickListener {
-            findNavController().navigate(R.id.action_loginFragment_to_languageFragmentFirst)
+
         }
         return binding.root
     }

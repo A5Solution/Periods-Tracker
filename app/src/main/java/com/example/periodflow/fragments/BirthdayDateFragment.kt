@@ -19,7 +19,7 @@ class BirthdayDateFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding.btnDoneLast.setOnClickListener {
-            findNavController().navigate(R.id.action_birthdayDateFragment_to_prognoseFragment)
+            findNavController().navigate(R.id.action_birthdayDateFragment_to_setNameFragment)
         }
         return binding.root
     }

@@ -18,11 +18,11 @@ class SplashFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
 
-        binding.btnSignUp.setOnClickListener{
-            findNavController().navigate(R.id.action_splashFragment_to_signupFragment)
-        }
-        binding.btnSignIn.setOnClickListener {
+        binding.btnLogin.setOnClickListener {
             findNavController().navigate(R.id.action_splashFragment_to_loginFragment)
+        }
+        binding.btnSignup.setOnClickListener {
+            findNavController().navigate(R.id.action_splashFragment_to_signupFragment)
         }
         return binding.root
     }
