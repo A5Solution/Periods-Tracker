@@ -104,7 +104,7 @@
     </fragment>
     <fragment
         android:id="@+id/periodCycleDaysFragment"
-        android:name="com.example.periodflow.PeriodCycleDaysFragment"
+        android:name="com.example.periodflow.fragments.PeriodCycleDaysFragment"
         android:label="fragment_period_cycle_days"
         tools:layout="@layout/fragment_period_cycle_days" >
         <action
