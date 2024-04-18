@@ -36,6 +36,12 @@
         <action
             android:id="@+id/action_homeFragment_to_navAccountFragment"
             app:destination="@id/navAccountFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_analysisFragment"
+            app:destination="@id/analysisFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_calendarFragmentFirst"
+            app:destination="@id/calendarFragmentFirst" />
     </fragment>
     <fragment
         android:id="@+id/setNameFragment"
@@ -111,4 +117,47 @@
             android:id="@+id/action_periodCycleDaysFragment_to_birthdayDateFragment"
             app:destination="@id/birthdayDateFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/analysisFragment"
+        android:name="com.example.periodflow.fragments.AnalysisFragment"
+        android:label="fragment_analysis"
+        tools:layout="@layout/fragment_analysis" >
+        <action
+            android:id="@+id/action_analysisFragment_to_myCycleFragment"
+            app:destination="@id/myCycleFragment" />
+        <action
+            android:id="@+id/action_analysisFragment_to_addWeightFragment"
+            app:destination="@id/addWeightFragment" />
+        <action
+            android:id="@+id/action_analysisFragment_to_addTemperatureFragment"
+            app:destination="@id/addTemperatureFragment" />
+        <action
+            android:id="@+id/action_analysisFragment_to_addBirthdayDateFragment"
+            app:destination="@id/addBirthdayDateFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/myCycleFragment"
+        android:name="com.example.periodflow.fragments.MyCycleFragment"
+        android:label="fragment_my_cycle"
+        tools:layout="@layout/fragment_my_cycle" />
+    <fragment
+        android:id="@+id/addWeightFragment"
+        android:name="com.example.periodflow.fragments.AddWeightFragment"
+        android:label="fragment_add_weight"
+        tools:layout="@layout/fragment_add_weight" />
+    <fragment
+        android:id="@+id/addTemperatureFragment"
+        android:name="com.example.periodflow.fragments.AddTemperatureFragment"
+        android:label="fragment_add_temperature"
+        tools:layout="@layout/fragment_add_temperature" />
+    <fragment
+        android:id="@+id/addBirthdayDateFragment"
+        android:name="com.example.periodflow.fragments.AddBirthdayDateFragment"
+        android:label="fragment_add_birthday_date"
+        tools:layout="@layout/fragment_add_birthday_date" />
+    <fragment
+        android:id="@+id/calendarFragmentFirst"
+        android:name="com.example.periodflow.CalendarFragmentFirst"
+        android:label="fragment_calendar_first"
+        tools:layout="@layout/fragment_calendar_first" />
 </navigation>

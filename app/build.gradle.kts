@@ -77,4 +77,8 @@ dependencies {
     implementation("com.nineoldandroids:library:2.4.0")
 
     implementation ("com.google.android.gms:play-services-auth:21.0.0")
+
+    //Calendar
+    // The view calendar library
+    implementation ("com.kizitonwose.calendar:view:2.5.0")
 }

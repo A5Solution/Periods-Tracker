@@ -18,17 +18,14 @@ class PeriodCycleFragment : Fragment() {
     private val binding by lazy {
         FragmentPeriodCycleBinding.inflate(layoutInflater)
     }
-    private lateinit var adapter: NumbersAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
 
-        adapter = NumbersAdapter((1..50).toList())
-        binding.recyclerView.layoutManager = LinearLayoutManager(requireContext(),
-            RecyclerView.VERTICAL, false)
-        binding.recyclerView.adapter = adapter
+        binding.picker1.maxValue=20
+        binding.picker1.minValue=2
 
         binding.btnDoneLast.setOnClickListener {
             findNavController().navigate(R.id.action_periodCycleFragment_to_periodCycleDaysFragment)
