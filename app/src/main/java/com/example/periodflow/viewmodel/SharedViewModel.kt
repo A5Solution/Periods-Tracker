@@ -17,7 +17,6 @@ class SharedViewModel: ViewModel() {
         else
             checkLogedIn.invoke(false)
     }
-
     fun signUpUser(email: String, password: String, checkSignUp: (Boolean) -> Unit) {
         auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener { task ->
