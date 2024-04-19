@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CalendarFragmentFirst">
+    android:background="#FFE5E5"
+    tools:context=".fragments.CalendarFragmentFirst">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout3"
@@ -40,51 +41,148 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/exEightAppBarLayout"
+        android:id="@+id/exFourAppBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout3">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="14dp">
-
-            <TextView
-                android:id="@+id/exEightYearText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingHorizontal="6dp"
-                android:textSize="24sp"
-                android:textStyle="bold"
-                tools:text="2019" />
-
-            <TextView
-                android:id="@+id/exEightMonthText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-light"
-                android:letterSpacing="0.2"
-                android:textSize="38sp"
-                tools:text="April" />
-
-        </LinearLayout>
-
-    </com.google.android.material.appbar.AppBarLayout>
-
-    <com.kizitonwose.calendar.view.CalendarView
-        android:id="@+id/exEightCalendar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:cv_daySize="rectangle"
-        app:cv_dayViewResource="@layout/example_8_calendar_day"
-        app:cv_monthFooterResource="@layout/example_8_calendar_footer"
-        app:cv_monthHeaderResource="@layout/example_8_calendar_header"
-        app:cv_outDateStyle="endOfGrid"
-        app:cv_scrollPaged="true"
+        android:background="#FFE5E5"
+        android:theme="@style/AppTheme.AppBarOverlay"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/exEightAppBarLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout3">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/exFourToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:visibility="gone"
+            app:popupTheme="@style/AppTheme.PopupOverlay"
+            app:theme="@style/Example4ToolbarTheme"
+            app:titleTextColor="@color/example_4_grey" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FFE5E5"
+            android:paddingStart="14dp"
+            android:paddingTop="2dp"
+            android:paddingEnd="14dp"
+            android:paddingBottom="10dp">
+
+            <TextView
+                android:id="@+id/exFourStartDateText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center"
+                android:minLines="2"
+                android:textColor="@color/black"
+                android:textSize="26sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Mon\n22 Apr" />
+
+            <View
+                android:id="@+id/exFourHeaderDivider"
+                android:layout_width="1.5dp"
+                android:layout_height="0dp"
+                android:background="#EAEAEA"
+                android:rotation="45"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <TextView
+                android:id="@+id/exFourEndDateText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:gravity="end|center_vertical"
+                android:minLines="2"
+                android:textColor="@color/example_4_grey"
+                android:textSize="26sp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/exFourHeaderDivider"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Thu\n9 May" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <include
+            android:id="@+id/legendLayout"
+            layout="@layout/calendar_day_legend_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/exFourAppBarLayout">
+
+        <com.kizitonwose.calendar.view.CalendarView
+            android:id="@+id/exFourCalendar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            android:paddingBottom="100dp"
+            app:cv_dayViewResource="@layout/example_4_calendar_day"
+            app:cv_monthHeaderResource="@layout/example_4_calendar_header"
+            app:cv_orientation="vertical"
+            app:cv_scrollPaged="false"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.5" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="76dp"
+        android:layout_gravity="bottom"
+        android:elevation="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/exFourSaveButton"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:backgroundTint="@color/appColor"
+            android:text="@string/save"
+            android:textColor="@color/white"
+            android:theme="@style/Example4ButtonTheme"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.5" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
