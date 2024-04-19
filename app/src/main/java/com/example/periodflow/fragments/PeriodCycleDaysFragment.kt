@@ -32,12 +32,8 @@ class PeriodCycleDaysFragment : Fragment() {
         }
 
         binding.btnDoneLast.setOnClickListener {
-            Utils.setValueToFirebase("periodduration", selectedNumber.toString()) {
-                if (it)
-                    findNavController().navigate(R.id.action_periodCycleDaysFragment_to_birthdayDateFragment)
-                else
-                    Toast.makeText(requireContext(), "Something went wrong", Toast.LENGTH_SHORT).show()
-            }
+            Utils.periodduration = selectedNumber.toString()
+            findNavController().navigate(R.id.action_periodCycleDaysFragment_to_birthdayDateFragment)
         }
         return binding.root
     }

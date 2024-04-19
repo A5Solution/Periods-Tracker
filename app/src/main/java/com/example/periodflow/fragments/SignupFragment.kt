@@ -33,6 +33,9 @@ class SignupFragment : Fragment() {
         FragmentSignupBinding.inflate(layoutInflater)
     }
     private lateinit var viewModel: SharedViewModel
+    lateinit var mGoogleSignInClient: GoogleSignInClient
+    val Req_Code: Int = 123
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -47,10 +50,17 @@ class SignupFragment : Fragment() {
         binding.edtPasswordConfirm.setTextColor(Color.WHITE)
         binding.edtPasswordConfirm.background.mutate().setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_IN)
 
+        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+            .requestIdToken(getString(R.string.default_web_client_id))
+            .requestEmail()
+            .build()
+
+        mGoogleSignInClient = GoogleSignIn.getClient(requireContext(), gso)
 
         binding.btnContinueWithGoogle.setOnClickListener {
-            findNavController().navigate(R.id.action_signupFragment_to_periodCycleFragment)
+            signInGoogle()
         }
+
         binding.btnCreateAccount.setOnClickListener {
             val email = binding.edtEmail.text.toString()
             val password = binding.editTextTextPassword.text.toString()
@@ -68,7 +78,7 @@ class SignupFragment : Fragment() {
                 viewModel.signUpUser(email, password){
                     if(it)
                     {
-                        findNavController().navigate(R.id.action_signupFragment_to_periodCycleFragment)
+                        findNavController().navigate(R.id.action_signupFragment_to_loginFragment)
                     }
                     else{
                         Toast.makeText(requireContext(), "Something went wrong", Toast.LENGTH_SHORT).show()
@@ -78,5 +88,30 @@ class SignupFragment : Fragment() {
         }
 
         return binding.root
+    }
+    private fun signInGoogle() {
+        val signInIntent: Intent = mGoogleSignInClient.signInIntent
+        startActivityForResult(signInIntent, Req_Code)
+    }
+
+    // onActivityResult() function : this is where
+    // we provide the task and data for the Google Account
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == Req_Code) {
+            val task: Task<GoogleSignInAccount> = GoogleSignIn.getSignedInAccountFromIntent(data)
+            handleResult(task)
+        }
+    }
+
+    private fun handleResult(completedTask: Task<GoogleSignInAccount>) {
+        try {
+            val account: GoogleSignInAccount? = completedTask.getResult(ApiException::class.java)
+            if (account != null) {
+                findNavController().navigate(R.id.action_signupFragment_to_periodCycleFragment)
+            }
+        } catch (e: ApiException) {
+            Toast.makeText(requireContext(), e.toString(), Toast.LENGTH_SHORT).show()
+        }
     }
 }

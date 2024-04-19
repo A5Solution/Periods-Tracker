@@ -10,12 +10,42 @@ class Utils {
         private val databaseReference = FirebaseDatabase.getInstance().reference
         private val auth = FirebaseAuth.getInstance()
 
-        fun setValueToFirebase(key: String, value: Any, result: (Boolean) -> Unit) {
+        var periodduration = ""
+        var lastperioddate = ""
+        var username = ""
+        var periodcycle = ""
+
+        fun setBasicInfo() {
             val currentUser = auth.currentUser
             currentUser?.let { user ->
                 val userEmail = user.email
                 userEmail?.let { email ->
                     val usersRef = databaseReference.child("users").child(email.replace(".", "_"))
+
+                    val basicInfoUpdates = HashMap<String, Any>()
+                    basicInfoUpdates["periodduration"] = periodduration
+                    basicInfoUpdates["lastperioddate"] = lastperioddate
+                    basicInfoUpdates["username"] = username
+                    basicInfoUpdates["periodcycle"] = periodcycle
+
+                    usersRef.updateChildren(basicInfoUpdates)
+                        .addOnSuccessListener {
+                            Log.d("MyFirebase", "setBasicInfo: Success")
+                        }
+                        .addOnFailureListener { e ->
+                            Log.w("MyFirebase", "setBasicInfo: Error writing basic info to Firebase", e)
+                        }
+                }
+            }
+        }
+
+        fun setValueToFirebase(key: String, value: Any, result: (Boolean) -> Unit) {
+            val currentUser = auth.currentUser
+            currentUser?.let { user ->
+                val userEmail = user.email
+                userEmail?.let { email ->
+                    val usersRef =
+                        databaseReference.child("users").child(email.replace(".", "_"))
                     usersRef.child(key).setValue(value)
                         .addOnSuccessListener {
                             result.invoke(true)
@@ -37,12 +67,21 @@ class Utils {
             }
         }
 
-        fun setTwoValuesToFirebase(key1: String, value1: Any, key2: String, value2: Any, result: (Boolean) -> Unit) {
+        fun setTwoValuesToFirebase(
+            key1: String,
+            value1: Any,
+            key2: String,
+            value2: Any,
+            result: (Boolean) -> Unit
+        ) {
             val currentUser = auth.currentUser
             currentUser?.let { user ->
                 val userEmail = user.email
                 userEmail?.let { email ->
-                    val key = email.replace(".", "_") // Replace dots with underscores to avoid issues with Firebase keys
+                    val key = email.replace(
+                        ".",
+                        "_"
+                    ) // Replace dots with underscores to avoid issues with Firebase keys
                     val usersRef = databaseReference.child("users").child(key)
 
                     val updates = HashMap<String, Any>().apply {

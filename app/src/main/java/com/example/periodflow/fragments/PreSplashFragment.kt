@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.periodflow.R
 import com.example.periodflow.databinding.FragmentPreSplashBinding
+import com.example.periodflow.utils.SharePref
 
 class PreSplashFragment : Fragment() {
     private val binding by lazy {
@@ -21,7 +22,15 @@ class PreSplashFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         Handler(Looper.getMainLooper()).postDelayed({
-            findNavController().navigate(R.id.action_preSplashFragment_to_languageFragmentFirst)
+            if(!SharePref.getBoolean("firstInstall"))
+            {
+                SharePref.putBoolean("firstInstall", true)
+                findNavController().navigate(R.id.action_preSplashFragment_to_languageFragmentFirst)
+            }
+            else
+            {
+                findNavController().navigate(R.id.action_preSplashFragment_to_splashFragment)
+            }
         }, 1500)
         return binding.root
     }

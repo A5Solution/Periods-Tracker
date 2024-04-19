@@ -36,16 +36,8 @@ class PeriodCycleFragment : Fragment() {
 
         binding.btnDoneLast.setOnClickListener {
             Log.d("Number", "onCreateView: $selectedNumber")
-            Utils.setValueToFirebase("periodcycle", selectedNumber.toString()){
-                if(it)
-                {
-                    findNavController().navigate(R.id.action_periodCycleFragment_to_periodCycleDaysFragment)
-                }
-                else
-                {
-                    Toast.makeText(requireContext(), "Something went wrong", Toast.LENGTH_SHORT).show()
-                }
-            }
+            Utils.periodcycle = selectedNumber.toString()
+            findNavController().navigate(R.id.action_periodCycleFragment_to_periodCycleDaysFragment)
         }
         return binding.root
     }

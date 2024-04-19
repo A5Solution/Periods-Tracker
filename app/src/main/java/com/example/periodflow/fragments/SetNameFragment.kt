@@ -1,6 +1,8 @@
 package com.example.periodflow.fragments
 
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -26,14 +28,12 @@ class SetNameFragment : Fragment() {
                 Toast.makeText(requireContext(), "Kindly enter name", Toast.LENGTH_SHORT).show()
             }
             else{
-                Utils.setValueToFirebase("username", binding.editTextText.text.toString()){
-                    if(it)
-                    {
-                        findNavController().navigate(R.id.action_setNameFragment_to_homeFragment)
-                    }
-                    else
-                        Toast.makeText(requireContext(), "Something went wrong", Toast.LENGTH_SHORT).show()
-                }
+                Utils.username = binding.editTextText.text.toString()
+                Handler(Looper.getMainLooper()).postDelayed({
+                    Utils.setBasicInfo()
+                    findNavController().navigate(R.id.action_setNameFragment_to_homeFragment)
+                }, 1000)
+
             }
         }
         return binding.root

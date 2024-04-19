@@ -38,14 +38,8 @@ class BirthdayDateFragment : Fragment() {
             selectedDate = formatDate(dayOfMonth, monthOfYear, year)
         }
         binding.btnDoneLast.setOnClickListener {
-            Utils.setValueToFirebase("lastperioddate", selectedDate){
-                if(it)
-                {
-                    findNavController().navigate(R.id.action_birthdayDateFragment_to_setNameFragment)
-                }
-                else
-                    Toast.makeText(requireContext(), "Something went wrong", Toast.LENGTH_SHORT).show()
-            }
+            Utils.lastperioddate = selectedDate
+            findNavController().navigate(R.id.action_birthdayDateFragment_to_setNameFragment)
         }
         return binding.root
     }
