@@ -60,6 +60,9 @@ class SignupFragment : Fragment() {
         binding.btnContinueWithGoogle.setOnClickListener {
             signInGoogle()
         }
+        binding.textView125.setOnClickListener {
+            findNavController().navigate(R.id.action_signupFragment_to_loginFragment)
+        }
 
         binding.btnCreateAccount.setOnClickListener {
             val email = binding.edtEmail.text.toString()

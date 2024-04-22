@@ -18,7 +18,9 @@ class AddWeightFragment : Fragment() {
 
         binding.picker1.maxValue=140
         binding.picker1.minValue=20
-
+        binding.constraintLayout3.setOnClickListener {
+            fragmentManager?.popBackStackImmediate()
+        }
         return binding.root
     }
 }

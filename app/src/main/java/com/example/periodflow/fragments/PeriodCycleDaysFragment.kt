@@ -35,6 +35,9 @@ class PeriodCycleDaysFragment : Fragment() {
             Utils.periodduration = selectedNumber.toString()
             findNavController().navigate(R.id.action_periodCycleDaysFragment_to_birthdayDateFragment)
         }
+        binding.constraintLayout3.setOnClickListener {
+            fragmentManager?.popBackStackImmediate()
+        }
         return binding.root
     }
 }

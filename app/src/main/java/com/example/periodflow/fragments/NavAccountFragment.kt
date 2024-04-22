@@ -24,6 +24,10 @@ class NavAccountFragment : Fragment() {
     ): View {
         viewModel = ViewModelProvider(requireActivity())[SharedViewModel::class.java]
 
+        binding.constraintLayout3.setOnClickListener {
+            fragmentManager?.popBackStackImmediate()
+        }
+
         binding.btnLogout.setOnClickListener {
             viewModel.logoutUser {
                 if(it)

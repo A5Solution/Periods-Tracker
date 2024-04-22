@@ -6,7 +6,7 @@
     <string name="txtGoWith">Go With The Flow</string>
     <string name="txtSignIn">Sign In</string>
     <string name="txtSignUp">Sign Up</string>
-    <string name="txtAlreadyAccount">already have an account?</string>
+    <string name="txtAlreadyAccount">already have an account?  </string>
     <string name="txtHello">Hello Beautiful,</string>
     <string name="txtEnterDetails">Enter your information below or login with Google account</string>
     <string name="txtContinueGoogle">continue with google</string>

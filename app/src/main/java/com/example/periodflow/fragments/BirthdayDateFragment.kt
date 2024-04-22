@@ -37,6 +37,10 @@ class BirthdayDateFragment : Fragment() {
         binding.calendarView2.setOnDateChangedListener { _, year, monthOfYear, dayOfMonth ->
             selectedDate = formatDate(dayOfMonth, monthOfYear, year)
         }
+        binding.constraintLayout3.setOnClickListener {
+            fragmentManager?.popBackStackImmediate()
+        }
+
         binding.btnDoneLast.setOnClickListener {
             Utils.lastperioddate = selectedDate
             findNavController().navigate(R.id.action_birthdayDateFragment_to_setNameFragment)

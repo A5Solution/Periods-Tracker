@@ -184,15 +184,6 @@
                     app:layout_constraintStart_toStartOf="@+id/textView57"
                     app:layout_constraintTop_toBottomOf="@+id/textView57" />
 
-                <TextView
-                    android:id="@+id/txtNextFertileDate"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
-                    android:fontFamily="@font/poppins"
-                    android:text="24"
-                    app:layout_constraintStart_toEndOf="@+id/txtNextFertileMonth"
-                    app:layout_constraintTop_toTopOf="@+id/txtNextFertileMonth" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -240,15 +231,6 @@
                     app:layout_constraintStart_toStartOf="@+id/txtOvulation"
                     app:layout_constraintTop_toBottomOf="@+id/txtOvulation" />
 
-                <TextView
-                    android:id="@+id/txtNextOvulationDate"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
-                    android:fontFamily="@font/poppins"
-                    android:text="29"
-                    app:layout_constraintStart_toEndOf="@+id/txtNextOvulationMonth"
-                    app:layout_constraintTop_toTopOf="@+id/txtNextOvulationMonth" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -297,15 +279,6 @@
                     app:layout_constraintStart_toStartOf="@+id/txtNextPeriod"
                     app:layout_constraintTop_toBottomOf="@+id/txtNextPeriod" />
 
-                <TextView
-                    android:id="@+id/txtNextPeriodDate1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
-                    android:fontFamily="@font/poppins"
-                    android:text="13"
-                    app:layout_constraintStart_toEndOf="@+id/txtNextPeriodMonth1"
-                    app:layout_constraintTop_toTopOf="@+id/txtNextPeriodMonth1" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -326,23 +299,10 @@
             android:layout_marginTop="1dp"
             android:fontFamily="@font/poppins"
             android:text="May"
-            app:layout_constraintEnd_toStartOf="@+id/txtNextPeriodDate"
-            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintEnd_toStartOf="@+id/textView24"
             app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView26" />
-
-        <TextView
-            android:id="@+id/txtNextPeriodDate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:fontFamily="@font/poppins"
-            android:text="13"
-            app:layout_constraintEnd_toStartOf="@+id/textView24"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/txtNextPeriodMonth"
-            app:layout_constraintTop_toTopOf="@+id/txtNextPeriodMonth" />
 
         <TextView
             android:id="@+id/textView24"
@@ -352,11 +312,11 @@
             android:layout_marginEnd="5dp"
             android:fontFamily="@font/poppins"
             android:text="-"
-            app:layout_constraintBottom_toBottomOf="@+id/txtNextPeriodDate"
+            app:layout_constraintBottom_toBottomOf="@+id/txtNextPeriodMonth"
             app:layout_constraintEnd_toStartOf="@+id/textView40"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/txtNextPeriodDate"
-            app:layout_constraintTop_toTopOf="@+id/txtNextPeriodDate" />
+            app:layout_constraintStart_toEndOf="@+id/txtNextPeriodMonth"
+            app:layout_constraintTop_toTopOf="@+id/txtNextPeriodMonth" />
 
         <TextView
             android:id="@+id/textView40"
@@ -439,6 +399,7 @@
                 android:id="@+id/textView39"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
                 android:fontFamily="@font/poppins_medium"
                 android:text="13"
                 android:textColor="@color/black"

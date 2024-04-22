@@ -48,6 +48,9 @@
         <action
             android:id="@+id/action_homeFragment_to_calendarFragmentFirst"
             app:destination="@id/calendarFragmentFirst" />
+        <action
+            android:id="@+id/action_homeFragment_to_calendarFragmentFirst2"
+            app:destination="@id/calendarFragmentFirst" />
     </fragment>
     <fragment
         android:id="@+id/setNameFragment"
@@ -96,6 +99,9 @@
         <action
             android:id="@+id/action_loginFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_periodCycleFragment"
+            app:destination="@id/periodCycleFragment" />
     </fragment>
     <fragment
         android:id="@+id/languageFragment"

@@ -30,7 +30,9 @@ class AnalysisFragment : Fragment() {
         binding.textView89.setOnClickListener {
             findNavController().navigate(R.id.action_analysisFragment_to_addBirthdayDateFragment)
         }
-
+        binding.constraintLayout3.setOnClickListener {
+            fragmentManager?.popBackStackImmediate()
+        }
         return binding.root
     }
 

@@ -75,7 +75,9 @@ class EditCalendarPeriod : BaseFragment(R.layout.fragment_edit_calendar_period),
 
         monthCalendarView.isInvisible = binding.weekModeCheckBox.isChecked
         weekCalendarView.isInvisible = !binding.weekModeCheckBox.isChecked
-
+        binding.constraintLayout3.setOnClickListener {
+            fragmentManager?.popBackStackImmediate()
+        }
         binding.weekModeCheckBox.setOnCheckedChangeListener(weekModeToggled)
     }
 

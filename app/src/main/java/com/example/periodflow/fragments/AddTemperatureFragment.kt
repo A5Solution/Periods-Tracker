@@ -18,7 +18,9 @@ class AddTemperatureFragment : Fragment() {
     ): View {
         binding.picker1.maxValue=41
         binding.picker1.minValue=30
-
+        binding.constraintLayout3.setOnClickListener {
+            fragmentManager?.popBackStackImmediate()
+        }
         return binding.root
     }
 }

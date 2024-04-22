@@ -33,8 +33,11 @@ class SetNameFragment : Fragment() {
                     Utils.setBasicInfo()
                     findNavController().navigate(R.id.action_setNameFragment_to_homeFragment)
                 }, 1000)
-
             }
+        }
+
+        binding.constraintLayout3.setOnClickListener {
+            fragmentManager?.popBackStackImmediate()
         }
         return binding.root
     }

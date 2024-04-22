@@ -12,6 +12,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.periodflow.R
 import com.example.periodflow.databinding.FragmentLoginBinding
+import com.example.periodflow.utils.Utils.Companion.fetchBasicInfo
 import com.example.periodflow.viewmodel.SharedViewModel
 
 class LoginFragment : Fragment() {
@@ -34,6 +35,7 @@ class LoginFragment : Fragment() {
         binding.btnSignIn.setOnClickListener {
             val email = binding.edtEmail.text.toString()
             val password = binding.editTextTextPassword.text.toString()
+
             if(email.isEmpty() || password.isEmpty())
             {
                 Toast.makeText(requireContext(), "Please enter data", Toast.LENGTH_SHORT).show()
@@ -43,7 +45,15 @@ class LoginFragment : Fragment() {
                     if(it)
                     {
                         Toast.makeText(requireContext(), "Login successfully", Toast.LENGTH_SHORT).show()
-                        findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
+                        fetchBasicInfo(requireContext()){
+                            if(it)
+                            {
+                                findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
+                            }
+                            else{
+                                findNavController().navigate(R.id.action_loginFragment_to_periodCycleFragment)
+                            }
+                        }
                     }
                     else
                     {

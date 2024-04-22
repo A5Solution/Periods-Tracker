@@ -80,6 +80,9 @@ class CalendarFragmentFirst : BaseFragment(R.layout.fragment_calendar_first), Ha
                 setTextColorRes(R.color.example_4_grey)
             }
         }
+        binding.constraintLayout3.setOnClickListener {
+            fragmentManager?.popBackStackImmediate()
+        }
 
         configureBinders()
         val currentMonth = YearMonth.now()
