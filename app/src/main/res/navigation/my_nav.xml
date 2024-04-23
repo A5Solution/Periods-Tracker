@@ -15,6 +15,15 @@
             app:destination="@id/loginFragment"
             app:popUpTo="@id/navAccountFragment"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_navAccountFragment_to_addWeightFragment"
+            app:destination="@id/addWeightFragment" />
+        <action
+            android:id="@+id/action_navAccountFragment_to_addTemperatureFragment"
+            app:destination="@id/addTemperatureFragment" />
+        <action
+            android:id="@+id/action_navAccountFragment_to_addBirthdayDateFragment"
+            app:destination="@id/addBirthdayDateFragment" />
     </fragment>
     <fragment
         android:id="@+id/periodCycleFragment"

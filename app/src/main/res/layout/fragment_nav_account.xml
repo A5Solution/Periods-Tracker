@@ -96,25 +96,14 @@
                     app:layout_constraintTop_toTopOf="@+id/textView30" />
 
                 <TextView
-                    android:id="@+id/textView42"
+                    android:id="@+id/textView43"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="15dp"
                     android:fontFamily="@font/poppins_medium"
-                    android:text="Apr"
-                    android:textColor="@color/appColor"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/textView43" />
-
-                <TextView
-                    android:id="@+id/textView43"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="5dp"
-                    android:fontFamily="@font/poppins_medium"
                     android:text="29"
                     android:textColor="@color/appColor"
-                    app:layout_constraintEnd_toStartOf="@+id/textView42"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/textView31" />
 
                 <TextView
@@ -209,9 +198,9 @@
                 android:id="@+id/imageView9"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
                 android:layout_marginTop="10dp"
                 android:src="@drawable/icon_profile1"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/constraintLayout3" />
 
@@ -281,19 +270,6 @@
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/btnDoneLast" />
-
-            <TextView
-                android:id="@+id/textView11"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="15dp"
-                android:fontFamily="@font/inter_bold"
-                android:text="Sign in and synchronize your data"
-                android:textSize="20sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/imageView9"
-                app:layout_constraintTop_toTopOf="@+id/imageView9" />
 
             <TextView
                 android:id="@+id/textView17"
