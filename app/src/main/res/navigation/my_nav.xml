@@ -176,7 +176,11 @@
         android:id="@+id/myCycleFragment"
         android:name="com.example.periodflow.fragments.MyCycleFragment"
         android:label="fragment_my_cycle"
-        tools:layout="@layout/fragment_my_cycle" />
+        tools:layout="@layout/fragment_my_cycle" >
+        <action
+            android:id="@+id/action_myCycleFragment_to_calendarFragmentFirst"
+            app:destination="@id/calendarFragmentFirst" />
+    </fragment>
     <fragment
         android:id="@+id/addWeightFragment"
         android:name="com.example.periodflow.fragments.AddWeightFragment"

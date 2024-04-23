@@ -21,7 +21,6 @@
         android:layout_height="match_parent"
         android:background="@drawable/bg_home1">
 
-
         <ImageView
             android:id="@+id/btnProfile"
             android:layout_width="wrap_content"
@@ -344,30 +343,17 @@
             app:layout_constraintTop_toBottomOf="@+id/constraintLayout8">
 
             <TextView
-                android:id="@+id/textView32"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="30dp"
-                android:fontFamily="@font/poppins_medium"
-                android:text="Apr"
-                android:textColor="@color/black"
-                android:textSize="20sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
                 android:id="@+id/textView33"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="15dp"
                 android:fontFamily="@font/poppins_medium"
                 android:text="27"
                 android:textColor="@color/black"
                 android:textSize="20sp"
-                app:layout_constraintBottom_toBottomOf="@+id/textView32"
-                app:layout_constraintStart_toEndOf="@+id/textView32"
-                app:layout_constraintTop_toTopOf="@+id/textView32" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/textView35"
@@ -411,31 +397,10 @@
                 android:id="@+id/textView60"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
                 android:fontFamily="@font/poppins"
                 android:text="High"
-                app:layout_constraintStart_toStartOf="@+id/textView32"
-                app:layout_constraintTop_toBottomOf="@+id/textView32" />
-
-            <TextView
-                android:id="@+id/textView61"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:fontFamily="@font/poppins"
-                android:text="-"
-                app:layout_constraintStart_toEndOf="@+id/textView60"
-                app:layout_constraintTop_toTopOf="@+id/textView60" />
-
-            <TextView
-                android:id="@+id/textView62"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:fontFamily="@font/poppins"
-                android:text="Chance of getting pregnant"
-                app:layout_constraintStart_toEndOf="@+id/textView61"
-                app:layout_constraintTop_toTopOf="@+id/textView61" />
+                app:layout_constraintStart_toStartOf="@+id/textView33"
+                app:layout_constraintTop_toBottomOf="@+id/textView33" />
 
             <TextView
                 android:id="@+id/textView63"
@@ -448,32 +413,18 @@
                 app:layout_constraintStart_toStartOf="@+id/textView60"
                 app:layout_constraintTop_toBottomOf="@+id/textView60" />
 
-            <TextView
-                android:id="@+id/textView64"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:fontFamily="@font/poppins"
-                android:text="15"
-                android:textColor="@color/black"
-                app:layout_constraintStart_toEndOf="@+id/textView63"
-                app:layout_constraintTop_toTopOf="@+id/textView63" />
-
-            <ProgressBar
+            <SeekBar
                 android:id="@+id/progressBar"
-                style="@android:style/Widget.ProgressBar.Horizontal"
-                android:layout_width="fill_parent"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="20dp"
                 android:layout_marginBottom="30dp"
-                android:indeterminateOnly="false"
-                android:progress="33"
-                android:progressDrawable="@drawable/my_progressbar"
+                android:progress="5"
+                android:min="1"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView63" />
 
@@ -499,10 +450,11 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
+                android:layout_marginTop="5dp"
                 android:layout_marginEnd="20dp"
                 android:layout_marginBottom="30dp"
                 android:indeterminateOnly="false"
-                android:progress="20"
+                android:min="1"
                 android:progressDrawable="@drawable/my_progressbar"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -551,6 +503,7 @@
                 android:layout_marginStart="5dp"
                 android:fontFamily="@font/poppins"
                 android:text="15"
+                android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="@+id/textView67"
                 app:layout_constraintStart_toEndOf="@+id/textView67"
                 app:layout_constraintTop_toTopOf="@+id/textView67" />
@@ -586,6 +539,7 @@
                 android:layout_marginStart="5dp"
                 android:fontFamily="@font/poppins"
                 android:text="18"
+                android:visibility="gone"
                 android:textColor="@color/black"
                 app:layout_constraintBottom_toBottomOf="@+id/textView70"
                 app:layout_constraintStart_toEndOf="@+id/textView70"

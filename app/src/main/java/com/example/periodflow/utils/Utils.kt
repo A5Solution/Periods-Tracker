@@ -11,6 +11,7 @@ import com.google.firebase.database.FirebaseDatabase
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Date
+import java.util.Locale
 
 class Utils {
 
@@ -22,7 +23,6 @@ class Utils {
         var lastperioddate = ""
         var username = ""
         var periodcycle = ""
-        var nextPeriod = ""
 
         var weight = "0"
         var weightaddeddate = "00/00/0000"
@@ -92,11 +92,9 @@ class Utils {
                             }
                         }.addOnFailureListener { e ->
                             Log.w("MyFirebase", "fetchBasicInfo: Error fetching basic info", e)
-                            // Handle data fetch error (e.g., show error message to user)
                         }
                     } else {
                         Log.d("MyFirebase", "fetchBasicInfo: No internet connection available.")
-                        // Handle no internet scenario (e.g., show error message to user)
                     }
                 }
             }
@@ -143,6 +141,25 @@ class Utils {
                 .coerceAtLeast(0) // Non-negative remaining days
         }
 
+        fun calculateDaysSinceLastPeriod(): Int {
+            val formatter = SimpleDateFormat("dd/MM/yyyy") // Date format for parsing
+            try {
+                val lastPeriod = formatter.parse(lastperioddate)
+                val today = Calendar.getInstance().time // Current date
+
+                // Calculate the difference in milliseconds between the two dates
+                val differenceInMillis = today.time - lastPeriod.time
+
+                // Convert milliseconds to days
+                val differenceInDays = (differenceInMillis / (1000 * 60 * 60 * 24)).toInt()
+
+                return differenceInDays
+            } catch (e: Exception) {
+                Log.w("MyFirebase", "calculateDaysSinceLastPeriod: Error parsing date", e)
+                return -1 // Return -1 if there's an error
+            }
+        }
+
         fun calculateFertileWindowStart(): String? {
             val formatter = SimpleDateFormat("dd/MM/yyyy") // Date format for parsing
             try {
@@ -150,7 +167,6 @@ class Utils {
                 val calendar = Calendar.getInstance()
                 calendar.time = lastPeriodDate
 
-                // Add 11 days to the calendar to get the start of the fertile window
                 calendar.add(Calendar.DAY_OF_MONTH, 11)
 
                 return formatter.format(calendar.time)
@@ -170,7 +186,7 @@ class Utils {
                 val lastPeriodDate = formatter.parse(lastperioddate)
                 val calendar = Calendar.getInstance()
                 calendar.time = lastPeriodDate
-                calendar.add(Calendar.DAY_OF_MONTH, 9)
+                calendar.add(Calendar.DAY_OF_MONTH, 13)
                 return formatter.format(calendar.time)
             } catch (e: Exception) {
                 Log.w(
@@ -305,6 +321,56 @@ class Utils {
 
             val chooserIntent = Intent.createChooser(shareIntent, "Share $appName")
             context.startActivity(chooserIntent)
+        }
+        fun formatDate(): String {
+            val inputFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+            val outputFormat = SimpleDateFormat("MMM dd", Locale.getDefault())
+            val date = inputFormat.parse(lastperioddate)
+            return outputFormat.format(date)
+        }
+        fun formatDate(date: String): String {
+            val inputFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+            val outputFormat = SimpleDateFormat("MMM dd", Locale.getDefault())
+            val date = inputFormat.parse(date)
+            return outputFormat.format(date)
+        }
+
+        fun calculateNextDate(progress: Int): String {
+            val formatter = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+            val lastPeriodDate = formatter.parse(lastperioddate)
+
+            val calendar = Calendar.getInstance()
+            calendar.time = lastPeriodDate
+
+            calendar.add(Calendar.DAY_OF_MONTH, progress)
+
+            return formatter.format(calendar.time)
+        }
+        fun calculatePeriodDates(): Pair<String, String> {
+            // Parse the last period date string into a Date object
+            val formatter = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+            val lastPeriod = formatter.parse(lastperioddate)
+
+            // Create a Calendar instance and set it to the last period date
+            val calendar = Calendar.getInstance()
+            calendar.time = lastPeriod
+
+            // Calculate the start date of the period cycle
+            val startDate = calendar.clone() as Calendar // Create a clone to avoid modifying the original calendar
+            startDate.add(Calendar.DAY_OF_MONTH, periodcycle.toInt())
+
+            // Calculate the end date of the period cycle
+            val endDate = calendar.clone() as Calendar // Create a clone to avoid modifying the original calendar
+            endDate.add(Calendar.DAY_OF_MONTH, -0) // End date is one day before the last period date
+
+            // Format the calculated dates into the desired format
+            val startDateFormat = SimpleDateFormat("MMM dd", Locale.getDefault())
+            val endDateFormat = SimpleDateFormat("MMM dd", Locale.getDefault())
+
+            val startDateString = startDateFormat.format(startDate.time)
+            val endDateString = endDateFormat.format(endDate.time)
+
+            return Pair(startDateString, endDateString)
         }
     }
 }

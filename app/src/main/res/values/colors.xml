@@ -4,6 +4,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="appColor">#FC7FB6</color>
     <color name="appColor1">#DC4D90</color>
+    <color name="appColor2">#C8CACE</color>
     <color name="example_1_bg">#3A284C</color>
     <color name="example_1_bg_light">#433254</color>
     <color name="example_1_bg_secondary">#51356E</color>

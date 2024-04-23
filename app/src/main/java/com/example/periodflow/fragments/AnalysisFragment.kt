@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.periodflow.R
 import com.example.periodflow.databinding.FragmentAnalysisBinding
+import com.example.periodflow.utils.Utils
 
 
 class AnalysisFragment : Fragment() {
@@ -35,5 +36,12 @@ class AnalysisFragment : Fragment() {
         }
         return binding.root
     }
-
+    override fun onResume() {
+        super.onResume()
+        binding.textView88.text = Utils.weight + " Kg"
+        binding.textView90.text = Utils.weightaddeddate
+        binding.textView91.text = Utils.temperature + " C"
+        binding.textView93.text = Utils.temperatureaddeddate
+        binding.textView97.text = Utils.birthdaydate
+    }
 }
