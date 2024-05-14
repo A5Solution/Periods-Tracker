@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1076787052468",
+    "firebase_url": "https://period-tracker-bdd1b-default-rtdb.firebaseio.com",
+    "project_id": "period-tracker-bdd1b",
+    "storage_bucket": "period-tracker-bdd1b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1076787052468:android:6e5efb2d2907e674e53ce1",
+        "android_client_info": {
+          "package_name": "com.example.periodflow"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1076787052468-jk0luv4phg6hsk0kkotct4b7j3340vtf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.periodflow",
+            "certificate_hash": "80463770ad319aec848a37141da72319952d4728"
+          }
+        },
+        {
+          "client_id": "1076787052468-a49t5ofistoqtehcbj0l96l5gt81pcu1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCUl0Vz7t9Jdx7INlaVOndaGZki5Ytedkk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1076787052468-a49t5ofistoqtehcbj0l96l5gt81pcu1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

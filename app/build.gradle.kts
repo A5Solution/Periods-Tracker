@@ -3,6 +3,8 @@ import org.jetbrains.kotlin.gradle.plugin.mpp.pm20.util.archivesName
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("com.google.gms.google-services")
+    id("com.google.firebase.crashlytics")
 //    id("com.google.gms.google-services")
 //    id("com.google.firebase.crashlytics")
 }
@@ -63,7 +65,10 @@ dependencies {
     implementation("androidx.navigation:navigation-fragment-ktx:2.7.7")
     implementation("androidx.navigation:navigation-ui-ktx:2.7.7")
     implementation("androidx.lifecycle:lifecycle-process:2.7.0")
-    implementation("com.google.firebase:firebase-auth-ktx:23.0.0")
+    implementation("com.google.firebase:firebase-analytics:21.6.2")
+    implementation("com.google.firebase:firebase-crashlytics:18.6.4")
+    implementation("com.google.firebase:firebase-auth-ktx:22.3.1")
+    implementation("com.google.firebase:firebase-database-ktx:20.3.1")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
@@ -71,13 +76,10 @@ dependencies {
     // Chart and graph library
     implementation("com.github.blackfizz:eazegraph:1.2.5l@aar")
     implementation("com.nineoldandroids:library:2.4.0")
-    implementation ("com.google.android.gms:play-services-auth:19.0.0")
 
-    //Firebase
-//    implementation("com.google.firebase:firebase-config-ktx:21.6.3")
-//    implementation("com.google.firebase:firebase-analytics:21.5.1")
-//    implementation("com.google.firebase:firebase-crashlytics:18.6.2")
-//
-//    //Admob ads
-//    implementation ("com.google.android.gms:play-services-ads:23.0.0")
+    implementation ("com.google.android.gms:play-services-auth:21.0.0")
+
+    //Calendar
+    // The view calendar library
+    implementation ("com.kizitonwose.calendar:view:2.5.0")
 }

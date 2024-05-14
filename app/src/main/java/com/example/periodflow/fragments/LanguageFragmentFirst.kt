@@ -20,6 +20,9 @@ class LanguageFragmentFirst : Fragment() {
         binding.btnSelectLanguage.setOnClickListener {
             findNavController().navigate(R.id.action_languageFragmentFirst_to_languageFragment)
         }
+        binding.btnDoneLast.setOnClickListener {
+            findNavController().navigate(R.id.action_languageFragmentFirst_to_splashFragment)
+        }
         return binding.root
     }
 }
